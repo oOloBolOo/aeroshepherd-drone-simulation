@@ -1,0 +1,971 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sdf version="1.9">
+  <world name="aeroshepherd">
+    <physics type="ode">
+      <max_step_size>0.004</max_step_size>
+      <real_time_factor>1.0</real_time_factor>
+      <real_time_update_rate>250</real_time_update_rate>
+    </physics>
+    <gravity>0 0 -9.8</gravity>
+    <magnetic_field>6e-06 2.3e-05 -4.2e-05</magnetic_field>
+    <atmosphere type="adiabatic"/>
+    
+    <scene>
+      <grid>false</grid>
+      <ambient>0.7 0.7 0.7 1</ambient>
+      <background>0.5 0.7 0.9 1</background>
+      <shadows>true</shadows>
+      <sky>
+        <clouds>
+          <speed>12</speed>
+          <ambient>0.8 0.8 0.8 1.0</ambient>
+        </clouds>
+      </sky>
+      <fog>
+        <color>0.7 0.8 0.85 1.0</color>
+        <type>linear</type>
+        <start>10.0</start>
+        <end>100.0</end>
+      </fog>
+    </scene>
+
+    <model name="ground_plane">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry><plane><normal>0 0 1</normal><size>200 200</size></plane></geometry>
+          <surface><friction><ode/></friction><bounce/><contact/></surface>
+        </collision>
+        <visual name="visual">
+          <geometry><plane><normal>0 0 1</normal><size>200 200</size></plane></geometry>
+          <material>
+            <ambient>0.22 0.40 0.15 1.0</ambient>
+            <diffuse>0.25 0.45 0.17 1.0</diffuse>
+            <specular>0.01 0.01 0.01 1.0</specular>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <light name="sunUTC" type="directional">
+      <pose>0 0 500 0 -0 0</pose>
+      <cast_shadows>true</cast_shadows>
+      <intensity>1</intensity>
+      <direction>0.001 0.625 -0.78</direction>
+      <diffuse>0.904 0.904 0.904 1</diffuse>
+      <specular>0.271 0.271 0.271 1</specular>
+      <attenuation>
+        <range>2000</range><linear>0</linear><constant>1</constant><quadratic>0</quadratic>
+      </attenuation>
+    </light>
+
+    <spherical_coordinates>
+      <surface_model>EARTH_WGS84</surface_model>
+      <world_frame_orientation>ENU</world_frame_orientation>
+      <latitude_deg>47.397971057728974</latitude_deg>
+      <longitude_deg>8.546163739800146</longitude_deg>
+      <elevation>0</elevation>
+    </spherical_coordinates>
+
+    <model name="krowa_auto_1">
+      <static>true</static>
+      <pose>36.51 -3.5 0.5 0 0 0.33</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>1.4 0.6 1.0</size></box></geometry>
+        </collision>
+        <visual name="body">
+          <geometry><box><size>1.4 0.6 1.0</size></box></geometry>
+          <material><ambient>0.21 0.25 0.12 1</ambient><diffuse>0.21 0.25 0.12 1</diffuse></material>
+        </visual>
+        <visual name="head">
+          <pose>0.7 0 0.3 0 0 0</pose>
+          <geometry><box><size>0.4 0.4 0.4</size></box></geometry>
+          <material><ambient>0.1 0.1 0.1 1</ambient><diffuse>0.1 0.1 0.1 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+    <model name="krowa_auto_2">
+      <static>true</static>
+      <pose>6.34 -33.14 0.5 0 0 0.7</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>1.4 0.6 1.0</size></box></geometry>
+        </collision>
+        <visual name="body">
+          <geometry><box><size>1.4 0.6 1.0</size></box></geometry>
+          <material><ambient>0.41 0.33 0.06 1</ambient><diffuse>0.41 0.33 0.06 1</diffuse></material>
+        </visual>
+        <visual name="head">
+          <pose>0.7 0 0.3 0 0 0</pose>
+          <geometry><box><size>0.4 0.4 0.4</size></box></geometry>
+          <material><ambient>0.1 0.1 0.1 1</ambient><diffuse>0.1 0.1 0.1 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+    <model name="krowa_auto_3">
+      <static>true</static>
+      <pose>59.71 -22.34 0.5 0 0 0.39</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>1.4 0.6 1.0</size></box></geometry>
+        </collision>
+        <visual name="body">
+          <geometry><box><size>1.4 0.6 1.0</size></box></geometry>
+          <material><ambient>0.5 0.28 0.07 1</ambient><diffuse>0.5 0.28 0.07 1</diffuse></material>
+        </visual>
+        <visual name="head">
+          <pose>0.7 0 0.3 0 0 0</pose>
+          <geometry><box><size>0.4 0.4 0.4</size></box></geometry>
+          <material><ambient>0.1 0.1 0.1 1</ambient><diffuse>0.1 0.1 0.1 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+    <model name="krowa_auto_4">
+      <static>true</static>
+      <pose>17.52 -24.64 0.5 0 0 -2.92</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>1.4 0.6 1.0</size></box></geometry>
+        </collision>
+        <visual name="body">
+          <geometry><box><size>1.4 0.6 1.0</size></box></geometry>
+          <material><ambient>0.32 0.21 0.05 1</ambient><diffuse>0.32 0.21 0.05 1</diffuse></material>
+        </visual>
+        <visual name="head">
+          <pose>0.7 0 0.3 0 0 0</pose>
+          <geometry><box><size>0.4 0.4 0.4</size></box></geometry>
+          <material><ambient>0.1 0.1 0.1 1</ambient><diffuse>0.1 0.1 0.1 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+    <model name="krowa_auto_5">
+      <static>true</static>
+      <pose>56.64 -22.01 0.5 0 0 0.28</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>1.4 0.6 1.0</size></box></geometry>
+        </collision>
+        <visual name="body">
+          <geometry><box><size>1.4 0.6 1.0</size></box></geometry>
+          <material><ambient>0.39 0.26 0.04 1</ambient><diffuse>0.39 0.26 0.04 1</diffuse></material>
+        </visual>
+        <visual name="head">
+          <pose>0.7 0 0.3 0 0 0</pose>
+          <geometry><box><size>0.4 0.4 0.4</size></box></geometry>
+          <material><ambient>0.1 0.1 0.1 1</ambient><diffuse>0.1 0.1 0.1 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+    <model name="krowa_auto_6">
+      <static>true</static>
+      <pose>10.03 2.54 0.5 0 0 0.13</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>1.4 0.6 1.0</size></box></geometry>
+        </collision>
+        <visual name="body">
+          <geometry><box><size>1.4 0.6 1.0</size></box></geometry>
+          <material><ambient>0.35 0.3 0.1 1</ambient><diffuse>0.35 0.3 0.1 1</diffuse></material>
+        </visual>
+        <visual name="head">
+          <pose>0.7 0 0.3 0 0 0</pose>
+          <geometry><box><size>0.4 0.4 0.4</size></box></geometry>
+          <material><ambient>0.1 0.1 0.1 1</ambient><diffuse>0.1 0.1 0.1 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+    <model name="krowa_auto_7">
+      <static>true</static>
+      <pose>45.85 -11.35 0.5 0 0 -0.2</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>1.4 0.6 1.0</size></box></geometry>
+        </collision>
+        <visual name="body">
+          <geometry><box><size>1.4 0.6 1.0</size></box></geometry>
+          <material><ambient>0.36 0.2 0.03 1</ambient><diffuse>0.36 0.2 0.03 1</diffuse></material>
+        </visual>
+        <visual name="head">
+          <pose>0.7 0 0.3 0 0 0</pose>
+          <geometry><box><size>0.4 0.4 0.4</size></box></geometry>
+          <material><ambient>0.1 0.1 0.1 1</ambient><diffuse>0.1 0.1 0.1 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+    <model name="krowa_auto_8">
+      <static>true</static>
+      <pose>54.54 -0.64 0.5 0 0 0.17</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>1.4 0.6 1.0</size></box></geometry>
+        </collision>
+        <visual name="body">
+          <geometry><box><size>1.4 0.6 1.0</size></box></geometry>
+          <material><ambient>0.31 0.17 0.04 1</ambient><diffuse>0.31 0.17 0.04 1</diffuse></material>
+        </visual>
+        <visual name="head">
+          <pose>0.7 0 0.3 0 0 0</pose>
+          <geometry><box><size>0.4 0.4 0.4</size></box></geometry>
+          <material><ambient>0.1 0.1 0.1 1</ambient><diffuse>0.1 0.1 0.1 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+    <model name="krowa_auto_9">
+      <static>true</static>
+      <pose>34.73 5.01 0.5 0 0 0.78</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>1.4 0.6 1.0</size></box></geometry>
+        </collision>
+        <visual name="body">
+          <geometry><box><size>1.4 0.6 1.0</size></box></geometry>
+          <material><ambient>0.46 0.21 0.07 1</ambient><diffuse>0.46 0.21 0.07 1</diffuse></material>
+        </visual>
+        <visual name="head">
+          <pose>0.7 0 0.3 0 0 0</pose>
+          <geometry><box><size>0.4 0.4 0.4</size></box></geometry>
+          <material><ambient>0.1 0.1 0.1 1</ambient><diffuse>0.1 0.1 0.1 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+    <model name="krowa_auto_10">
+      <static>true</static>
+      <pose>51.2 -28.44 0.5 0 0 -0.18</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>1.4 0.6 1.0</size></box></geometry>
+        </collision>
+        <visual name="body">
+          <geometry><box><size>1.4 0.6 1.0</size></box></geometry>
+          <material><ambient>0.31 0.2 0.01 1</ambient><diffuse>0.31 0.2 0.01 1</diffuse></material>
+        </visual>
+        <visual name="head">
+          <pose>0.7 0 0.3 0 0 0</pose>
+          <geometry><box><size>0.4 0.4 0.4</size></box></geometry>
+          <material><ambient>0.1 0.1 0.1 1</ambient><diffuse>0.1 0.1 0.1 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+    <model name="krowa_auto_11">
+      <static>true</static>
+      <pose>31.74 -25.77 0.5 0 0 0.28</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>1.4 0.6 1.0</size></box></geometry>
+        </collision>
+        <visual name="body">
+          <geometry><box><size>1.4 0.6 1.0</size></box></geometry>
+          <material><ambient>0.49 0.17 0.08 1</ambient><diffuse>0.49 0.17 0.08 1</diffuse></material>
+        </visual>
+        <visual name="head">
+          <pose>0.7 0 0.3 0 0 0</pose>
+          <geometry><box><size>0.4 0.4 0.4</size></box></geometry>
+          <material><ambient>0.1 0.1 0.1 1</ambient><diffuse>0.1 0.1 0.1 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+    <model name="krowa_auto_12">
+      <static>true</static>
+      <pose>20.19 5.59 0.5 0 0 2.45</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>1.4 0.6 1.0</size></box></geometry>
+        </collision>
+        <visual name="body">
+          <geometry><box><size>1.4 0.6 1.0</size></box></geometry>
+          <material><ambient>0.2 0.18 0.08 1</ambient><diffuse>0.2 0.18 0.08 1</diffuse></material>
+        </visual>
+        <visual name="head">
+          <pose>0.7 0 0.3 0 0 0</pose>
+          <geometry><box><size>0.4 0.4 0.4</size></box></geometry>
+          <material><ambient>0.1 0.1 0.1 1</ambient><diffuse>0.1 0.1 0.1 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+    <model name="krowa_auto_13">
+      <static>true</static>
+      <pose>52.68 22.39 0.5 0 0 -2.7</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>1.4 0.6 1.0</size></box></geometry>
+        </collision>
+        <visual name="body">
+          <geometry><box><size>1.4 0.6 1.0</size></box></geometry>
+          <material><ambient>0.34 0.26 0.05 1</ambient><diffuse>0.34 0.26 0.05 1</diffuse></material>
+        </visual>
+        <visual name="head">
+          <pose>0.7 0 0.3 0 0 0</pose>
+          <geometry><box><size>0.4 0.4 0.4</size></box></geometry>
+          <material><ambient>0.1 0.1 0.1 1</ambient><diffuse>0.1 0.1 0.1 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+    <model name="krowa_auto_14">
+      <static>true</static>
+      <pose>34.54 -34.3 0.5 0 0 2.05</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>1.4 0.6 1.0</size></box></geometry>
+        </collision>
+        <visual name="body">
+          <geometry><box><size>1.4 0.6 1.0</size></box></geometry>
+          <material><ambient>0.33 0.21 0.03 1</ambient><diffuse>0.33 0.21 0.03 1</diffuse></material>
+        </visual>
+        <visual name="head">
+          <pose>0.7 0 0.3 0 0 0</pose>
+          <geometry><box><size>0.4 0.4 0.4</size></box></geometry>
+          <material><ambient>0.1 0.1 0.1 1</ambient><diffuse>0.1 0.1 0.1 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+    <model name="krowa_auto_15">
+      <static>true</static>
+      <pose>40.85 26.98 0.5 0 0 -1.53</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>1.4 0.6 1.0</size></box></geometry>
+        </collision>
+        <visual name="body">
+          <geometry><box><size>1.4 0.6 1.0</size></box></geometry>
+          <material><ambient>0.43 0.32 0.08 1</ambient><diffuse>0.43 0.32 0.08 1</diffuse></material>
+        </visual>
+        <visual name="head">
+          <pose>0.7 0 0.3 0 0 0</pose>
+          <geometry><box><size>0.4 0.4 0.4</size></box></geometry>
+          <material><ambient>0.1 0.1 0.1 1</ambient><diffuse>0.1 0.1 0.1 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+    <model name="krowa_auto_16">
+      <static>true</static>
+      <pose>12.05 26.23 0.5 0 0 0.86</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>1.4 0.6 1.0</size></box></geometry>
+        </collision>
+        <visual name="body">
+          <geometry><box><size>1.4 0.6 1.0</size></box></geometry>
+          <material><ambient>0.27 0.29 0.01 1</ambient><diffuse>0.27 0.29 0.01 1</diffuse></material>
+        </visual>
+        <visual name="head">
+          <pose>0.7 0 0.3 0 0 0</pose>
+          <geometry><box><size>0.4 0.4 0.4</size></box></geometry>
+          <material><ambient>0.1 0.1 0.1 1</ambient><diffuse>0.1 0.1 0.1 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+    <model name="krowa_auto_17">
+      <static>true</static>
+      <pose>24.02 -25.99 0.5 0 0 2.44</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>1.4 0.6 1.0</size></box></geometry>
+        </collision>
+        <visual name="body">
+          <geometry><box><size>1.4 0.6 1.0</size></box></geometry>
+          <material><ambient>0.35 0.3 0.12 1</ambient><diffuse>0.35 0.3 0.12 1</diffuse></material>
+        </visual>
+        <visual name="head">
+          <pose>0.7 0 0.3 0 0 0</pose>
+          <geometry><box><size>0.4 0.4 0.4</size></box></geometry>
+          <material><ambient>0.1 0.1 0.1 1</ambient><diffuse>0.1 0.1 0.1 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+    <model name="krowa_auto_18">
+      <static>true</static>
+      <pose>12.4 26.56 0.5 0 0 1.1</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>1.4 0.6 1.0</size></box></geometry>
+        </collision>
+        <visual name="body">
+          <geometry><box><size>1.4 0.6 1.0</size></box></geometry>
+          <material><ambient>0.42 0.15 0.07 1</ambient><diffuse>0.42 0.15 0.07 1</diffuse></material>
+        </visual>
+        <visual name="head">
+          <pose>0.7 0 0.3 0 0 0</pose>
+          <geometry><box><size>0.4 0.4 0.4</size></box></geometry>
+          <material><ambient>0.1 0.1 0.1 1</ambient><diffuse>0.1 0.1 0.1 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+    <model name="krowa_auto_19">
+      <static>true</static>
+      <pose>22.06 12.24 0.5 0 0 1.92</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>1.4 0.6 1.0</size></box></geometry>
+        </collision>
+        <visual name="body">
+          <geometry><box><size>1.4 0.6 1.0</size></box></geometry>
+          <material><ambient>0.39 0.18 0.01 1</ambient><diffuse>0.39 0.18 0.01 1</diffuse></material>
+        </visual>
+        <visual name="head">
+          <pose>0.7 0 0.3 0 0 0</pose>
+          <geometry><box><size>0.4 0.4 0.4</size></box></geometry>
+          <material><ambient>0.1 0.1 0.1 1</ambient><diffuse>0.1 0.1 0.1 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+    <model name="krowa_auto_20">
+      <static>true</static>
+      <pose>6.51 25.93 0.5 0 0 1.75</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>1.4 0.6 1.0</size></box></geometry>
+        </collision>
+        <visual name="body">
+          <geometry><box><size>1.4 0.6 1.0</size></box></geometry>
+          <material><ambient>0.39 0.32 0.14 1</ambient><diffuse>0.39 0.32 0.14 1</diffuse></material>
+        </visual>
+        <visual name="head">
+          <pose>0.7 0 0.3 0 0 0</pose>
+          <geometry><box><size>0.4 0.4 0.4</size></box></geometry>
+          <material><ambient>0.1 0.1 0.1 1</ambient><diffuse>0.1 0.1 0.1 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+    <model name="krowa_auto_21">
+      <static>true</static>
+      <pose>29.3 -20.78 0.5 0 0 0.57</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>1.4 0.6 1.0</size></box></geometry>
+        </collision>
+        <visual name="body">
+          <geometry><box><size>1.4 0.6 1.0</size></box></geometry>
+          <material><ambient>0.37 0.33 0.06 1</ambient><diffuse>0.37 0.33 0.06 1</diffuse></material>
+        </visual>
+        <visual name="head">
+          <pose>0.7 0 0.3 0 0 0</pose>
+          <geometry><box><size>0.4 0.4 0.4</size></box></geometry>
+          <material><ambient>0.1 0.1 0.1 1</ambient><diffuse>0.1 0.1 0.1 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+    <model name="krowa_auto_22">
+      <static>true</static>
+      <pose>7.77 24.16 0.5 0 0 -1.88</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>1.4 0.6 1.0</size></box></geometry>
+        </collision>
+        <visual name="body">
+          <geometry><box><size>1.4 0.6 1.0</size></box></geometry>
+          <material><ambient>0.32 0.28 0.06 1</ambient><diffuse>0.32 0.28 0.06 1</diffuse></material>
+        </visual>
+        <visual name="head">
+          <pose>0.7 0 0.3 0 0 0</pose>
+          <geometry><box><size>0.4 0.4 0.4</size></box></geometry>
+          <material><ambient>0.1 0.1 0.1 1</ambient><diffuse>0.1 0.1 0.1 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+    <model name="krowa_auto_23">
+      <static>true</static>
+      <pose>20.42 11.77 0.5 0 0 -0.61</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>1.4 0.6 1.0</size></box></geometry>
+        </collision>
+        <visual name="body">
+          <geometry><box><size>1.4 0.6 1.0</size></box></geometry>
+          <material><ambient>0.28 0.18 0.02 1</ambient><diffuse>0.28 0.18 0.02 1</diffuse></material>
+        </visual>
+        <visual name="head">
+          <pose>0.7 0 0.3 0 0 0</pose>
+          <geometry><box><size>0.4 0.4 0.4</size></box></geometry>
+          <material><ambient>0.1 0.1 0.1 1</ambient><diffuse>0.1 0.1 0.1 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+    <model name="krowa_auto_24">
+      <static>true</static>
+      <pose>57.56 -34.13 0.5 0 0 2.49</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>1.4 0.6 1.0</size></box></geometry>
+        </collision>
+        <visual name="body">
+          <geometry><box><size>1.4 0.6 1.0</size></box></geometry>
+          <material><ambient>0.3 0.23 0.1 1</ambient><diffuse>0.3 0.23 0.1 1</diffuse></material>
+        </visual>
+        <visual name="head">
+          <pose>0.7 0 0.3 0 0 0</pose>
+          <geometry><box><size>0.4 0.4 0.4</size></box></geometry>
+          <material><ambient>0.1 0.1 0.1 1</ambient><diffuse>0.1 0.1 0.1 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+    <model name="krowa_auto_25">
+      <static>true</static>
+      <pose>37.96 33.28 0.5 0 0 -2.29</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>1.4 0.6 1.0</size></box></geometry>
+        </collision>
+        <visual name="body">
+          <geometry><box><size>1.4 0.6 1.0</size></box></geometry>
+          <material><ambient>0.26 0.17 0.12 1</ambient><diffuse>0.26 0.17 0.12 1</diffuse></material>
+        </visual>
+        <visual name="head">
+          <pose>0.7 0 0.3 0 0 0</pose>
+          <geometry><box><size>0.4 0.4 0.4</size></box></geometry>
+          <material><ambient>0.1 0.1 0.1 1</ambient><diffuse>0.1 0.1 0.1 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+    <model name="krowa_auto_26">
+      <static>true</static>
+      <pose>13.13 17.39 0.5 0 0 -0.99</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>1.4 0.6 1.0</size></box></geometry>
+        </collision>
+        <visual name="body">
+          <geometry><box><size>1.4 0.6 1.0</size></box></geometry>
+          <material><ambient>0.48 0.26 0.11 1</ambient><diffuse>0.48 0.26 0.11 1</diffuse></material>
+        </visual>
+        <visual name="head">
+          <pose>0.7 0 0.3 0 0 0</pose>
+          <geometry><box><size>0.4 0.4 0.4</size></box></geometry>
+          <material><ambient>0.1 0.1 0.1 1</ambient><diffuse>0.1 0.1 0.1 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+    <model name="krowa_auto_27">
+      <static>true</static>
+      <pose>29.25 19.6 0.5 0 0 -1.85</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>1.4 0.6 1.0</size></box></geometry>
+        </collision>
+        <visual name="body">
+          <geometry><box><size>1.4 0.6 1.0</size></box></geometry>
+          <material><ambient>0.29 0.17 0.04 1</ambient><diffuse>0.29 0.17 0.04 1</diffuse></material>
+        </visual>
+        <visual name="head">
+          <pose>0.7 0 0.3 0 0 0</pose>
+          <geometry><box><size>0.4 0.4 0.4</size></box></geometry>
+          <material><ambient>0.1 0.1 0.1 1</ambient><diffuse>0.1 0.1 0.1 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+    <model name="krowa_auto_28">
+      <static>true</static>
+      <pose>23.32 30.82 0.5 0 0 -2.45</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>1.4 0.6 1.0</size></box></geometry>
+        </collision>
+        <visual name="body">
+          <geometry><box><size>1.4 0.6 1.0</size></box></geometry>
+          <material><ambient>0.22 0.31 0.08 1</ambient><diffuse>0.22 0.31 0.08 1</diffuse></material>
+        </visual>
+        <visual name="head">
+          <pose>0.7 0 0.3 0 0 0</pose>
+          <geometry><box><size>0.4 0.4 0.4</size></box></geometry>
+          <material><ambient>0.1 0.1 0.1 1</ambient><diffuse>0.1 0.1 0.1 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+    <model name="krowa_auto_29">
+      <static>true</static>
+      <pose>11.53 -10.3 0.5 0 0 -0.11</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>1.4 0.6 1.0</size></box></geometry>
+        </collision>
+        <visual name="body">
+          <geometry><box><size>1.4 0.6 1.0</size></box></geometry>
+          <material><ambient>0.45 0.32 0.03 1</ambient><diffuse>0.45 0.32 0.03 1</diffuse></material>
+        </visual>
+        <visual name="head">
+          <pose>0.7 0 0.3 0 0 0</pose>
+          <geometry><box><size>0.4 0.4 0.4</size></box></geometry>
+          <material><ambient>0.1 0.1 0.1 1</ambient><diffuse>0.1 0.1 0.1 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+    <model name="krowa_auto_30">
+      <static>true</static>
+      <pose>50.34 20.33 0.5 0 0 -0.28</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>1.4 0.6 1.0</size></box></geometry>
+        </collision>
+        <visual name="body">
+          <geometry><box><size>1.4 0.6 1.0</size></box></geometry>
+          <material><ambient>0.31 0.16 0.09 1</ambient><diffuse>0.31 0.16 0.09 1</diffuse></material>
+        </visual>
+        <visual name="head">
+          <pose>0.7 0 0.3 0 0 0</pose>
+          <geometry><box><size>0.4 0.4 0.4</size></box></geometry>
+          <material><ambient>0.1 0.1 0.1 1</ambient><diffuse>0.1 0.1 0.1 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+    <model name="krowa_auto_31">
+      <static>true</static>
+      <pose>55.56 21.76 0.5 0 0 -2.46</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>1.4 0.6 1.0</size></box></geometry>
+        </collision>
+        <visual name="body">
+          <geometry><box><size>1.4 0.6 1.0</size></box></geometry>
+          <material><ambient>0.39 0.3 0.08 1</ambient><diffuse>0.39 0.3 0.08 1</diffuse></material>
+        </visual>
+        <visual name="head">
+          <pose>0.7 0 0.3 0 0 0</pose>
+          <geometry><box><size>0.4 0.4 0.4</size></box></geometry>
+          <material><ambient>0.1 0.1 0.1 1</ambient><diffuse>0.1 0.1 0.1 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+    <model name="krowa_auto_32">
+      <static>true</static>
+      <pose>18.72 10.24 0.5 0 0 -3.05</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>1.4 0.6 1.0</size></box></geometry>
+        </collision>
+        <visual name="body">
+          <geometry><box><size>1.4 0.6 1.0</size></box></geometry>
+          <material><ambient>0.29 0.23 0.1 1</ambient><diffuse>0.29 0.23 0.1 1</diffuse></material>
+        </visual>
+        <visual name="head">
+          <pose>0.7 0 0.3 0 0 0</pose>
+          <geometry><box><size>0.4 0.4 0.4</size></box></geometry>
+          <material><ambient>0.1 0.1 0.1 1</ambient><diffuse>0.1 0.1 0.1 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+    <model name="krowa_auto_33">
+      <static>true</static>
+      <pose>20.89 -2.79 0.5 0 0 -0.3</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>1.4 0.6 1.0</size></box></geometry>
+        </collision>
+        <visual name="body">
+          <geometry><box><size>1.4 0.6 1.0</size></box></geometry>
+          <material><ambient>0.27 0.23 0.02 1</ambient><diffuse>0.27 0.23 0.02 1</diffuse></material>
+        </visual>
+        <visual name="head">
+          <pose>0.7 0 0.3 0 0 0</pose>
+          <geometry><box><size>0.4 0.4 0.4</size></box></geometry>
+          <material><ambient>0.1 0.1 0.1 1</ambient><diffuse>0.1 0.1 0.1 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+    <model name="krowa_auto_34">
+      <static>true</static>
+      <pose>42.39 -14.34 0.5 0 0 1.39</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>1.4 0.6 1.0</size></box></geometry>
+        </collision>
+        <visual name="body">
+          <geometry><box><size>1.4 0.6 1.0</size></box></geometry>
+          <material><ambient>0.39 0.21 0.13 1</ambient><diffuse>0.39 0.21 0.13 1</diffuse></material>
+        </visual>
+        <visual name="head">
+          <pose>0.7 0 0.3 0 0 0</pose>
+          <geometry><box><size>0.4 0.4 0.4</size></box></geometry>
+          <material><ambient>0.1 0.1 0.1 1</ambient><diffuse>0.1 0.1 0.1 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+    <model name="krowa_auto_35">
+      <static>true</static>
+      <pose>34.71 7.01 0.5 0 0 -0.61</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>1.4 0.6 1.0</size></box></geometry>
+        </collision>
+        <visual name="body">
+          <geometry><box><size>1.4 0.6 1.0</size></box></geometry>
+          <material><ambient>0.25 0.17 0.0 1</ambient><diffuse>0.25 0.17 0.0 1</diffuse></material>
+        </visual>
+        <visual name="head">
+          <pose>0.7 0 0.3 0 0 0</pose>
+          <geometry><box><size>0.4 0.4 0.4</size></box></geometry>
+          <material><ambient>0.1 0.1 0.1 1</ambient><diffuse>0.1 0.1 0.1 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+    <model name="krowa_auto_36">
+      <static>true</static>
+      <pose>11.2 20.32 0.5 0 0 1.0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>1.4 0.6 1.0</size></box></geometry>
+        </collision>
+        <visual name="body">
+          <geometry><box><size>1.4 0.6 1.0</size></box></geometry>
+          <material><ambient>0.28 0.2 0.04 1</ambient><diffuse>0.28 0.2 0.04 1</diffuse></material>
+        </visual>
+        <visual name="head">
+          <pose>0.7 0 0.3 0 0 0</pose>
+          <geometry><box><size>0.4 0.4 0.4</size></box></geometry>
+          <material><ambient>0.1 0.1 0.1 1</ambient><diffuse>0.1 0.1 0.1 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+    <model name="krowa_auto_37">
+      <static>true</static>
+      <pose>10.0 -30.85 0.5 0 0 1.59</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>1.4 0.6 1.0</size></box></geometry>
+        </collision>
+        <visual name="body">
+          <geometry><box><size>1.4 0.6 1.0</size></box></geometry>
+          <material><ambient>0.28 0.3 0.13 1</ambient><diffuse>0.28 0.3 0.13 1</diffuse></material>
+        </visual>
+        <visual name="head">
+          <pose>0.7 0 0.3 0 0 0</pose>
+          <geometry><box><size>0.4 0.4 0.4</size></box></geometry>
+          <material><ambient>0.1 0.1 0.1 1</ambient><diffuse>0.1 0.1 0.1 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+    <model name="krowa_auto_38">
+      <static>true</static>
+      <pose>35.64 -30.85 0.5 0 0 -1.46</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>1.4 0.6 1.0</size></box></geometry>
+        </collision>
+        <visual name="body">
+          <geometry><box><size>1.4 0.6 1.0</size></box></geometry>
+          <material><ambient>0.39 0.34 0.07 1</ambient><diffuse>0.39 0.34 0.07 1</diffuse></material>
+        </visual>
+        <visual name="head">
+          <pose>0.7 0 0.3 0 0 0</pose>
+          <geometry><box><size>0.4 0.4 0.4</size></box></geometry>
+          <material><ambient>0.1 0.1 0.1 1</ambient><diffuse>0.1 0.1 0.1 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+    <model name="krowa_auto_39">
+      <static>true</static>
+      <pose>33.15 29.2 0.5 0 0 1.91</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>1.4 0.6 1.0</size></box></geometry>
+        </collision>
+        <visual name="body">
+          <geometry><box><size>1.4 0.6 1.0</size></box></geometry>
+          <material><ambient>0.49 0.16 0.14 1</ambient><diffuse>0.49 0.16 0.14 1</diffuse></material>
+        </visual>
+        <visual name="head">
+          <pose>0.7 0 0.3 0 0 0</pose>
+          <geometry><box><size>0.4 0.4 0.4</size></box></geometry>
+          <material><ambient>0.1 0.1 0.1 1</ambient><diffuse>0.1 0.1 0.1 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+    <model name="krowa_auto_40">
+      <static>true</static>
+      <pose>40.38 -27.09 0.5 0 0 1.48</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>1.4 0.6 1.0</size></box></geometry>
+        </collision>
+        <visual name="body">
+          <geometry><box><size>1.4 0.6 1.0</size></box></geometry>
+          <material><ambient>0.26 0.24 0.07 1</ambient><diffuse>0.26 0.24 0.07 1</diffuse></material>
+        </visual>
+        <visual name="head">
+          <pose>0.7 0 0.3 0 0 0</pose>
+          <geometry><box><size>0.4 0.4 0.4</size></box></geometry>
+          <material><ambient>0.1 0.1 0.1 1</ambient><diffuse>0.1 0.1 0.1 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+    <model name="krowa_auto_41">
+      <static>true</static>
+      <pose>15.15 -30.09 0.5 0 0 1.11</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>1.4 0.6 1.0</size></box></geometry>
+        </collision>
+        <visual name="body">
+          <geometry><box><size>1.4 0.6 1.0</size></box></geometry>
+          <material><ambient>0.23 0.33 0.13 1</ambient><diffuse>0.23 0.33 0.13 1</diffuse></material>
+        </visual>
+        <visual name="head">
+          <pose>0.7 0 0.3 0 0 0</pose>
+          <geometry><box><size>0.4 0.4 0.4</size></box></geometry>
+          <material><ambient>0.1 0.1 0.1 1</ambient><diffuse>0.1 0.1 0.1 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+    <model name="krowa_auto_42">
+      <static>true</static>
+      <pose>43.37 32.15 0.5 0 0 -2.7</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>1.4 0.6 1.0</size></box></geometry>
+        </collision>
+        <visual name="body">
+          <geometry><box><size>1.4 0.6 1.0</size></box></geometry>
+          <material><ambient>0.33 0.18 0.08 1</ambient><diffuse>0.33 0.18 0.08 1</diffuse></material>
+        </visual>
+        <visual name="head">
+          <pose>0.7 0 0.3 0 0 0</pose>
+          <geometry><box><size>0.4 0.4 0.4</size></box></geometry>
+          <material><ambient>0.1 0.1 0.1 1</ambient><diffuse>0.1 0.1 0.1 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+    <model name="krowa_auto_43">
+      <static>true</static>
+      <pose>54.87 4.77 0.5 0 0 -0.58</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>1.4 0.6 1.0</size></box></geometry>
+        </collision>
+        <visual name="body">
+          <geometry><box><size>1.4 0.6 1.0</size></box></geometry>
+          <material><ambient>0.32 0.34 0.08 1</ambient><diffuse>0.32 0.34 0.08 1</diffuse></material>
+        </visual>
+        <visual name="head">
+          <pose>0.7 0 0.3 0 0 0</pose>
+          <geometry><box><size>0.4 0.4 0.4</size></box></geometry>
+          <material><ambient>0.1 0.1 0.1 1</ambient><diffuse>0.1 0.1 0.1 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+    <model name="krowa_auto_44">
+      <static>true</static>
+      <pose>20.21 23.64 0.5 0 0 -2.94</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>1.4 0.6 1.0</size></box></geometry>
+        </collision>
+        <visual name="body">
+          <geometry><box><size>1.4 0.6 1.0</size></box></geometry>
+          <material><ambient>0.4 0.27 0.01 1</ambient><diffuse>0.4 0.27 0.01 1</diffuse></material>
+        </visual>
+        <visual name="head">
+          <pose>0.7 0 0.3 0 0 0</pose>
+          <geometry><box><size>0.4 0.4 0.4</size></box></geometry>
+          <material><ambient>0.1 0.1 0.1 1</ambient><diffuse>0.1 0.1 0.1 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+    <model name="krowa_auto_45">
+      <static>true</static>
+      <pose>20.56 10.76 0.5 0 0 -0.99</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>1.4 0.6 1.0</size></box></geometry>
+        </collision>
+        <visual name="body">
+          <geometry><box><size>1.4 0.6 1.0</size></box></geometry>
+          <material><ambient>0.41 0.33 0.06 1</ambient><diffuse>0.41 0.33 0.06 1</diffuse></material>
+        </visual>
+        <visual name="head">
+          <pose>0.7 0 0.3 0 0 0</pose>
+          <geometry><box><size>0.4 0.4 0.4</size></box></geometry>
+          <material><ambient>0.1 0.1 0.1 1</ambient><diffuse>0.1 0.1 0.1 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+    <model name="krowa_auto_46">
+      <static>true</static>
+      <pose>40.48 9.92 0.5 0 0 0.15</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>1.4 0.6 1.0</size></box></geometry>
+        </collision>
+        <visual name="body">
+          <geometry><box><size>1.4 0.6 1.0</size></box></geometry>
+          <material><ambient>0.31 0.34 0.15 1</ambient><diffuse>0.31 0.34 0.15 1</diffuse></material>
+        </visual>
+        <visual name="head">
+          <pose>0.7 0 0.3 0 0 0</pose>
+          <geometry><box><size>0.4 0.4 0.4</size></box></geometry>
+          <material><ambient>0.1 0.1 0.1 1</ambient><diffuse>0.1 0.1 0.1 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+    <model name="krowa_auto_47">
+      <static>true</static>
+      <pose>44.39 27.57 0.5 0 0 -1.52</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>1.4 0.6 1.0</size></box></geometry>
+        </collision>
+        <visual name="body">
+          <geometry><box><size>1.4 0.6 1.0</size></box></geometry>
+          <material><ambient>0.45 0.21 0.03 1</ambient><diffuse>0.45 0.21 0.03 1</diffuse></material>
+        </visual>
+        <visual name="head">
+          <pose>0.7 0 0.3 0 0 0</pose>
+          <geometry><box><size>0.4 0.4 0.4</size></box></geometry>
+          <material><ambient>0.1 0.1 0.1 1</ambient><diffuse>0.1 0.1 0.1 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+    <model name="krowa_auto_48">
+      <static>true</static>
+      <pose>50.23 -14.33 0.5 0 0 -2.76</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>1.4 0.6 1.0</size></box></geometry>
+        </collision>
+        <visual name="body">
+          <geometry><box><size>1.4 0.6 1.0</size></box></geometry>
+          <material><ambient>0.45 0.22 0.09 1</ambient><diffuse>0.45 0.22 0.09 1</diffuse></material>
+        </visual>
+        <visual name="head">
+          <pose>0.7 0 0.3 0 0 0</pose>
+          <geometry><box><size>0.4 0.4 0.4</size></box></geometry>
+          <material><ambient>0.1 0.1 0.1 1</ambient><diffuse>0.1 0.1 0.1 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+    <model name="krowa_auto_49">
+      <static>true</static>
+      <pose>26.45 -10.64 0.5 0 0 2.53</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>1.4 0.6 1.0</size></box></geometry>
+        </collision>
+        <visual name="body">
+          <geometry><box><size>1.4 0.6 1.0</size></box></geometry>
+          <material><ambient>0.32 0.22 0.08 1</ambient><diffuse>0.32 0.22 0.08 1</diffuse></material>
+        </visual>
+        <visual name="head">
+          <pose>0.7 0 0.3 0 0 0</pose>
+          <geometry><box><size>0.4 0.4 0.4</size></box></geometry>
+          <material><ambient>0.1 0.1 0.1 1</ambient><diffuse>0.1 0.1 0.1 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+    <model name="krowa_auto_50">
+      <static>true</static>
+      <pose>59.5 32.46 0.5 0 0 0.56</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>1.4 0.6 1.0</size></box></geometry>
+        </collision>
+        <visual name="body">
+          <geometry><box><size>1.4 0.6 1.0</size></box></geometry>
+          <material><ambient>0.29 0.35 0.05 1</ambient><diffuse>0.29 0.35 0.05 1</diffuse></material>
+        </visual>
+        <visual name="head">
+          <pose>0.7 0 0.3 0 0 0</pose>
+          <geometry><box><size>0.4 0.4 0.4</size></box></geometry>
+          <material><ambient>0.1 0.1 0.1 1</ambient><diffuse>0.1 0.1 0.1 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+  </world>
+</sdf>
