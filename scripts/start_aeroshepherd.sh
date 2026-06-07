@@ -55,22 +55,24 @@ gnome-terminal --tab --title="📊 4. ROS 2 Monitor" -- bash -c "
   ros2 run aeroshepherd battery_monitor;
   exec bash" &
 
-# 5. Stabilny mostek wideo (Dopasowany do nowej nazwy świata: aeroshepherd)
-gnome-terminal --tab --title="🎥 5. Ros Gz Bridge (Video)" -- bash -c "
-  echo -e '${YELLOW}⏳ Oczekiwanie na rozbudzenie sensora kamery...${NC}';
+# 5. Podwójny stabilny mostek wideo (RGB + Thermal)
+gnome-terminal --tab --title="🎥 5. Ros Gz Bridges" -- bash -c "
+  echo -e '${YELLOW}⏳ Oczekiwanie na inicjalizację sensorów optycznych...${NC}';
   sleep 9;
   source /opt/ros/jazzy/setup.bash;
-  echo -e '${GREEN}▶ Uruchamianie dedykowanego mostka wideo...${NC}';
-  ros2 run ros_gz_bridge parameter_bridge /world/aeroshepherd/model/aeroshepherd_0/link/base_link/sensor/camera_sensor/image@sensor_msgs/msg/Image[gz.msgs.Image;
-  exec bash"
+  echo -e '${GREEN}▶ Uruchamianie mostka kamery RGB...${NC}';
+  ros2 run ros_gz_bridge parameter_bridge /world/aeroshepherd/model/aeroshepherd_0/link/base_link/sensor/camera_sensor/image@sensor_msgs/msg/Image[gz.msgs.Image &
+  echo -e '${GREEN}▶ Uruchamianie mostka kamery TERMOWIZYJNEJ...${NC}';
+  ros2 run ros_gz_bridge parameter_bridge /world/aeroshepherd/model/aeroshepherd_0/link/base_link/sensor/thermal_camera/image@sensor_msgs/msg/Image[gz.msgs.Image;
+  exec bash" &
 
-# 6. Automatyczny podgląd wideo RQT z wstrzykniętym tematem na start
-gnome-terminal --tab --title="📺 6. RQT Image Preview" -- bash -c "
-  echo -e '${YELLOW}⏳ Oczekiwanie na uruchomienie strumienia w sieci ROS 2...${NC}';
-  sleep 11;
-  source /opt/ros/jazzy/setup.bash;
-  echo -e '${GREEN}▶ Odpalanie okna wideo z automatycznym wyborem kamery...${NC}';
-  ros2 run rqt_image_view rqt_image_view /world/aeroshepherd/model/aeroshepherd_0/link/base_link/sensor/camera_sensor/image;
+# 6. Autorski wielospektralny węzeł analityczny YOLOv8
+gnome-terminal --tab --title="📺 6. AeroShepherd Dual-Vision Live" -- bash -c "
+  echo -e '${YELLOW}⏳ Oczekiwanie na strumienie danych...${NC}';
+  sleep 12;
+  source /opt/ros/jazzy/setup.bash && source ~/ros2_ws/install/setup.bash;
+  echo -e '${GREEN}▶ Odpalanie zsynchronizowanego podglądu wizji (RGB + IR)...${NC}';
+  python3 ~/ros2_ws/src/aeroshepherd/aeroshepherd/thermal_vision.py;
   exec bash"
   
 echo -e "${GREEN}✨ Wszystkie zakładki zostały pomyślnie wpięte do okna roboczego!${NC}"
