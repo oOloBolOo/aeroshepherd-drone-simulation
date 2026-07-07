@@ -117,6 +117,6 @@ stopka = "\n  </world>\n</sdf>\n"
 try:
     with open(SCIEZKA_SWIATA, "w") as f:
         f.write(naglowek + krowy_xml + stopka)
-    print(f"✨ Sukces! Wygenerowano świat z {LICZBA_KROW} krowami bezpośrednio w pliku: {SCIEZKA_SWIATA}")
+    print(f"Wygenerowano świat z {LICZBA_KROW} krowami bezpośrednio w pliku: {SCIEZKA_SWIATA}")
 except Exception as e:
-    print(f"❌ Błąd zapisu: {e}")
+    print(f"Błąd zapisu: {e}")
