@@ -1,4 +1,7 @@
 # AeroShepherd - Autonomous Drone Simulation Ecosystem
+<p align="center">
+  <img src="DroneSim.png" alt="AeroShepherd Simulation Ecosystem" width="90%">
+</p>
 
 Autonomiczny system bsk (drona) zintegrowany z robotycznym systemem operacyjnym ROS 2 (Jazzy) oraz środowiskiem symulacyjnym Gazebo Sim (Harmonic), wykorzystujący autopilota PX4 Autopilot (SITL) do zadań rolnictwa precyzyjnego i monitorowania dużego inwentarza żywego.
 
